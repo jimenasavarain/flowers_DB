@@ -1,26 +1,27 @@
 <?php
-header('Access-Control-Allow-Origin: *'); 
+header('Access-Control-Allow-Origin: *');
 try {
-  $conn = new PDO("","","");
+  $conn = new PDO("localhost:3306","root","root");
 } catch (PDOException $e){
   echo "Error".$e->getMessage();
 }
 
 $email =$_POST["email"];
 $password =$_POST["password"];
-$name =$_POST["name"];
+$firstname =$_POST['firstname'];
+$lastname =$_POST['lastname'];
 
 $query = "SELECT * FROM admins WHERE email='$email'";
 
 $result = $conn->query($query);
 if($result){
   $admins=$result->fetchAll();
-  
-  if (!empty($users)){
-    echo json_encode(false);  
+
+  if (!empty($admins)){
+    echo json_encode(false);
   } else {
-    
-    $query = "INSERT INTO admins (name, password, email) VALUES ('$name', '$password', '$email')";
+
+    $query = "INSERT INTO admins (firstname, lastname, password, email) VALUES ('$firstname', '$lastname', '$password', '$email')";
 
 
     $result = $conn->query($query);
@@ -35,8 +36,8 @@ if($result){
       echo json_encode(false);
     }
   }
-  
-  
+
+
 } else {
   echo json_encode(false);
 }
