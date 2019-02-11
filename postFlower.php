@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 try {
-  $conn = new PDO("localhost:3306","root","root");
+  $conn = new PDO("host=localhost&dbname=flowershop_dblocalhost:3306","root","");
 } catch (PDOException $e){
   echo "Error".$e->getMessage();
 }
@@ -12,7 +12,8 @@ $name =$_POST["itemName"];
 $price =$_POST["price"];
 $description =$_POST["description"];
 $reviews =$_POST["reviews"];
-$img =$_POST['itemImg'];
+//$img =$_POST['itemImg'];
+$img = "NO IMAGE"
 $dateadded =$_POST["dateadded"];
 //$image =$_POST["image"];
 
