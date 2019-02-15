@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 try {
-  $conn = new PDO("mysql:host=localhost;dbname=flowershop_db","newroot","newroot");
+  $conn = new PDO("pwcspfbyl73eccbn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","djjgopngh67f0sdi","o2hle778718kdubu");
 } catch (PDOException $e){
   echo "Error".$e->getMessage();
 }
