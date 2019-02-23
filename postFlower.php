@@ -13,7 +13,7 @@ $type =$_POST['type'];
 $name =$_POST["itemName"];
 $price =$_POST["price"];
 $description =$_POST["description"];
-$reviews ="test";
+$reviews ="NO REVIEWS";
 $img = "NO IMAGE";
 $dateadded =$_POST["dateadded"];
 
