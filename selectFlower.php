@@ -8,17 +8,15 @@ try {
   echo "Error".$e->getMessage();
 }
 
-$adminid=1;
+// value of adminid will be 1 for now
+$adminid=$_POST['adminnum'];
 
-//$query = "INSERT INTO flowers (adminid, name, price, description, reviews, dateadded, type, image) VALUES ('$adminid', '$name', '$price', '$description', '$reviews', '$dateadded', '$type', '$img')";
-
-$query = "SELECT * FROM flowers";
+$query = "SELECT * FROM flowers WHERE adminid='$adminid'";
 
 $result = $conn->query($query);
 
 if($result){
   $flowers = $result->fetchAll(PDO::FETCH_CLASS);
-
   echo json_encode ($flowers);
 } else {
     echo json_encode (false);
