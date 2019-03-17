@@ -27,7 +27,7 @@ if($result){
     echo json_encode($test1);
   } else {
 
-    $query = "INSERT INTO users (name, password, email) VALUES ('$name' '$password', '$email')";
+    $query = "INSERT INTO users (name, password, email) VALUES ('$name', '$password', '$email')";
 
 
     $result = $conn->query($query);
