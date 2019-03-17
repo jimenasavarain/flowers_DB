@@ -10,6 +10,7 @@ try {
 
 $email =$_POST["email"];
 $password =$_POST["password"];
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $firstname =$_POST['firstname'];
 $lastname =$_POST['lastname'];
 $name= $firstname . " " . $lastname;
@@ -24,7 +25,7 @@ if($result){
     echo json_encode(false);
   } else {
 
-    $query = "INSERT INTO users (name, password, email) VALUES ('$name', '$password', '$email')";
+    $query = "INSERT INTO users (name, password, email) VALUES ('$name', '$hashed_password', '$email')";
 
 
     $result = $conn->query($query);
