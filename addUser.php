@@ -21,7 +21,7 @@ if($result){
   $users=$result->fetchAll();
 
   if (!empty($users)){
-    echo json_encode(false);
+    echo json_encode(false, "yeet");
   } else {
 
     $query = "INSERT INTO users (name, password, email) VALUES ('$name' '$password', '$email')";
@@ -36,13 +36,13 @@ if($result){
       ));
 
     } else {
-      echo json_encode(false);
+      echo json_encode(false, "yaww");
     }
   }
 
 
 } else {
-  echo json_encode(false);
+  echo json_encode(false, "boo");
 }
 
 $conn=null;
