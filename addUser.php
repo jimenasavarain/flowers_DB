@@ -12,26 +12,27 @@ $email =$_POST["email"];
 $password =$_POST["password"];
 $firstname =$_POST['firstname'];
 $lastname =$_POST['lastname'];
+$name= $firstname . " " . $lastname;
 
-$query = "SELECT * FROM admins WHERE email='$email'";
+$query = "SELECT * FROM users WHERE email='$email'";
 
 $result = $conn->query($query);
 if($result){
-  $admins=$result->fetchAll();
+  $users=$result->fetchAll();
 
-  if (!empty($admins)){
+  if (!empty($users)){
     echo json_encode(false);
   } else {
 
-    $query = "INSERT INTO admins (firstname, lastname, password, email) VALUES ('$firstname', '$lastname', '$password', '$email')";
+    $query = "INSERT INTO users (name, password, email) VALUES ('$name' '$password', '$email')";
 
 
     $result = $conn->query($query);
     if($result){
-      $admin_id=$conn->lastInsertId();
+      $user_id=$conn->lastInsertId();
       echo json_encode(array(
         'status'=>true,
-        'id'=>$admin_id,
+        'id'=>$user_id,
       ));
 
     } else {
