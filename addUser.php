@@ -13,6 +13,9 @@ $password =$_POST["password"];
 $firstname =$_POST['firstname'];
 $lastname =$_POST['lastname'];
 $name= $firstname . " " . $lastname;
+$test1 = "f1";
+$test2 = "f2";
+$test3 = "f3";
 
 $query = "SELECT * FROM users WHERE email='$email'";
 
@@ -21,7 +24,7 @@ if($result){
   $users=$result->fetchAll();
 
   if (!empty($users)){
-    echo json_encode(false, "yeet");
+    echo json_encode($test1);
   } else {
 
     $query = "INSERT INTO users (name, password, email) VALUES ('$name' '$password', '$email')";
@@ -36,13 +39,13 @@ if($result){
       ));
 
     } else {
-      echo json_encode(false, "yaww");
+      echo json_encode($test2);
     }
   }
 
 
 } else {
-  echo json_encode(false, "boo");
+  echo json_encode($test3);
 }
 
 $conn=null;
