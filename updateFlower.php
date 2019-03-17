@@ -19,13 +19,12 @@ $dateadded =$_POST["dateadded"];
 
 //$query = "SELECT * FROM flowers WHERE adminid='$adminid'";
 
-$query = "UPDATE flowers SET email = '$uEmail' WHERE flower_id = '$flowerid'";
+$query = "UPDATE flowers SET name='$name',type='$type',price='$price',description='$description',reviews='$reviews',image='$img',dateadded='$dateadded' WHERE flower_id = '$flowerid'";
 
 $result = $conn->query($query);
 
 if($result){
-  $flowers = $result->fetchAll(PDO::FETCH_CLASS);
-  echo json_encode ($flowers);
+  echo json_encode (true);
 } else {
     echo json_encode (false);
 }
