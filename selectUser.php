@@ -13,16 +13,17 @@ $password = $_POST["password"];
 
 // $query = "SELECT email, password FROM users WHERE email='$email' and password='$password'";
 
-$query = "SELECT * FROM users WHERE email='$email'";
+$query = "SELECT password FROM users WHERE email='$email'";
         $result = $conn->query($query);
         if ($result) {
             //goes into conditional argument
             //$result->num_rows === 1
 
-
+            $row = $result->fetch();
             //$row = $result->fetch_array(MYSQLI_ASSOC);
-            $row = $result->fetchAll(PDO::FETCH_CLASS);
-            if (password_verify($password, $row['password'])) {
+            //$row = $result->fetchAll(PDO::FETCH_CLASS);
+            //$row['password']
+            if (password_verify($password, $row)) {
 
                 //Password matches, so create the session
                 // $_SESSION['user'] = $row['user_id'];
