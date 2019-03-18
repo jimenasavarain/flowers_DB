@@ -23,7 +23,7 @@ $query = "SELECT password FROM users WHERE email='$email'";
             //$row = $result->fetch_array(MYSQLI_ASSOC);
             //$row = $result->fetchAll(PDO::FETCH_CLASS);
             //$row['password']
-            if (password_verify($password, $row)) {
+            if (password_verify($password, $row['password'])) {
 
                 //Password matches, so create the session
                 // $_SESSION['user'] = $row['user_id'];
