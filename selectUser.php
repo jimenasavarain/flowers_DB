@@ -32,7 +32,7 @@ $query = "SELECT password FROM users WHERE email='$email'";
                 echo json_encode("Match");
 
             }else{
-                echo json_encode("The username or password do not match", $row);
+                echo json_encode("The username or password do not match");
             }
           }else{
             echo json_encode(false);
