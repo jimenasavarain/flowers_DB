@@ -14,7 +14,7 @@ $password = $_POST["password"];
 // $query = "SELECT email, password FROM users WHERE email='$email' and password='$password'";
 
 $query = "SELECT * FROM users WHERE email='$email'";
-        $result = $conn->query($sql);
+        $result = $conn->query($query);
         if ($result->num_rows === 1) {
             $row = $result->fetch_array(MYSQLI_ASSOC);
             if (password_verify($password, $row['password'])) {
