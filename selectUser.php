@@ -15,8 +15,13 @@ $password = $_POST["password"];
 
 $query = "SELECT * FROM users WHERE email='$email'";
         $result = $conn->query($query);
-        if ($result->num_rows === 1) {
-            $row = $result->fetch_array(MYSQLI_ASSOC);
+        if ($result) {
+            //goes into conditional argument
+            //$result->num_rows === 1
+
+
+            //$row = $result->fetch_array(MYSQLI_ASSOC);
+            $row = $result->fetchAll(PDO::FETCH_CLASS);
             if (password_verify($password, $row['password'])) {
 
                 //Password matches, so create the session
