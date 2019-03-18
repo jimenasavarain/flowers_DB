@@ -11,7 +11,7 @@ try {
 $flowerid =$_POST["flowerid"];
 $reviews =$_POST["review"];
 
-$query = "UPDATE flowers SET reviews = '$reviews' WHERE flower_id='$flower_id'";
+$query = "UPDATE flowers SET reviews = '$reviews' WHERE flower_id='$flowerid'";
 
 
 $result = $conn->query($query);
