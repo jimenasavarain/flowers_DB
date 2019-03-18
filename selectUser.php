@@ -20,6 +20,7 @@ $query = "SELECT * FROM users WHERE email='$email'";
             //$result->num_rows === 1
 
             $row = $result->fetch();
+            $users = $result->fetchAll(PDO::FETCH_CLASS);
             //$row = $result->fetch_array(MYSQLI_ASSOC);
             //$row = $result->fetchAll(PDO::FETCH_CLASS);
             //$row['password']
@@ -29,7 +30,7 @@ $query = "SELECT * FROM users WHERE email='$email'";
                 // $_SESSION['user'] = $row['user_id'];
                 // header("Location: http://www.example.com/logged_in.php");
 
-                echo json_encode($row);
+                echo json_encode($users);
 
             }else{
                 echo json_encode("The username or password do not match");
