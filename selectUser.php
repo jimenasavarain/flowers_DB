@@ -13,7 +13,7 @@ $password = $_POST["password"];
 
 // $query = "SELECT email, password FROM users WHERE email='$email' and password='$password'";
 
-$query = "SELECT password FROM users WHERE email='$email'";
+$query = "SELECT * FROM users WHERE email='$email'";
         $result = $conn->query($query);
         if ($result) {
             //goes into conditional argument
