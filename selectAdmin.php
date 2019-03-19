@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: *'); 
+header('Access-Control-Allow-Origin: *');
 try {
   $conn = new PDO("pwcspfbyl73eccbn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","djjgopngh67f0sdi","o2hle778718kdubu");
 } catch (PDOException $e){
@@ -18,9 +18,9 @@ $query = "SELECT email, password FROM admins WHERE email='$email' and password='
 
 $result = $conn->query($query);
 if($result){
-  $users=$result->fetchAll();
-  echo json_encode($admins); 
-  
+  $admins=$result->fetchAll();
+  echo json_encode($admins);
+
 } else {
   echo json_encode(false);
 }
